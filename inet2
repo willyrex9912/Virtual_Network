@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo virsh attach-interface --domain $1 -type bridge --source $2 --model e1000 --mac $3 --current
