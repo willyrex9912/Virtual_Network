@@ -1,0 +1,9 @@
+#!/bin/bash
+
+INTERFACE1="ens8f0"
+INTERFACE2="ens9"
+
+ip addr add 200.200.202.2/30 dev $INTERFACE1
+ip link set $INTERFACE1 up
+ip addr add 200.200.204.1/30 dev $INTERFACE2
+ip link set $INTERFACE2 up
