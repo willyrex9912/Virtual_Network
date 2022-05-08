@@ -1,0 +1,6 @@
+#!/bin/bash
+
+$INTERFACE="ens3"
+
+ip addr add 200.200.204.2/30 dev $INTERFACE1
+ip link set $INTERFACE1 up
