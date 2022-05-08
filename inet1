@@ -1,0 +1,31 @@
+#!/bin/bash
+
+BRIDGE1="bridge_AB"
+BRIDGE2="bridge_BC"
+BRIDGE3="bridge_CD"
+BRIDGE4="bridge_DE"
+BRIDGE5="bridge_A"
+BRIDGE6="bridge_B"
+BRIDGE7="bridge_C"
+BRIDGE8="bridge_D"
+BRIDGE9="bridge_E"
+
+sudo brctl addbr $BRIDGE1
+sudo brctl addbr $BRIDGE2
+sudo brctl addbr $BRIDGE3
+sudo brctl addbr $BRIDGE4
+sudo brctl addbr $BRIDGE5
+sudo brctl addbr $BRIDGE6
+sudo brctl addbr $BRIDGE7
+sudo brctl addbr $BRIDGE8
+sudo brctl addbr $BRIDGE9
+
+sudo ip link set $BRIDGE1 up
+sudo ip link set $BRIDGE2 up
+sudo ip link set $BRIDGE3 up
+sudo ip link set $BRIDGE4 up
+sudo ip link set $BRIDGE5 up
+sudo ip link set $BRIDGE6 up
+sudo ip link set $BRIDGE7 up
+sudo ip link set $BRIDGE8 up
+sudo ip link set $BRIDGE9 up
