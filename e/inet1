@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$INTERFACE="ens8f0"
+INTERFACE1="ens8f0"
 
 ip addr add 200.200.204.2/30 dev $INTERFACE1
 ip link set $INTERFACE1 up
