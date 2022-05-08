@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo virsh detach-interface --domain $1 -type bridge --mac $2 --current
+sudo virsh detach-interface --domain $1 --type bridge --mac $2 --current
