@@ -5,7 +5,7 @@ INTERFACE2="ens9"
 
 ip addr add 200.200.200.1/30 dev $INTERFACE1
 ip link set $INTERFACE1 up
-ip addr add 10.10.10.1/27 dev $INTERFACE2
+ip addr add 10.10.1.1/27 dev $INTERFACE2
 ip link set $INTERFACE2 up
 
 sysctl -w net.ipv4.ip_forward=1

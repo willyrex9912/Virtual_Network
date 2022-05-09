@@ -8,7 +8,7 @@ ip addr add 200.200.202.2/30 dev $INTERFACE1
 ip link set $INTERFACE1 up
 ip addr add 200.200.204.1/30 dev $INTERFACE2
 ip link set $INTERFACE2 up
-ip addr add 10.10.10.4/29 dev $INTERFACE3
+ip addr add 10.10.4.1/29 dev $INTERFACE3
 ip link set $INTERFACE3 up
 
 sysctl -w net.ipv4.ip_forward=1
