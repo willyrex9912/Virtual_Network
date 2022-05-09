@@ -2,8 +2,11 @@
 
 INTERFACE1="ens8f0"
 INTERFACE2="ens9"
+INTERFACE3="ens10"
 
-ip addr add 200.200.204.2/30 dev $INTERFACE1
+ip addr add 200.200.202.2/30 dev $INTERFACE1
 ip link set $INTERFACE1 up
-ip addr add 10.10.10.5/26 dev $INTERFACE2
+ip addr add 200.200.204.1/30 dev $INTERFACE2
 ip link set $INTERFACE2 up
+ip addr add 10.10.10.4/29 dev $INTERFACE3
+ip link set $INTERFACE3 up
