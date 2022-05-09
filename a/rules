@@ -1,0 +1,26 @@
+*filter
+
+# Aceptar todas la conexiones entrantes previamente establecidas
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Aceptar todo el trafico saliente
+-A OUTPUT -j ACCEPT
+
+# Permitir las conexiones de SSH
+-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+
+# Permitir ping
+-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+
+COMMIT
+
+*nat
+-A POSTROUTING -o ens9 -j MASQUERADE
+
+COMMIT
+
+#*forward
+#-A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+#-A FORWARD -i ens9 -o ens8f0 -j ACCEPT
+
+#COMMIT
