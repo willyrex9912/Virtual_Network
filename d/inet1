@@ -13,3 +13,8 @@ ip route add 200.200.200.0/30 via 200.200.204.1 dev ens8f0
 ip route add 200.200.201.0/30 via 200.200.204.1 dev ens8f0
 ip route add 200.200.202.0/30 via 200.200.204.1 dev ens8f0
 
+ip route add 10.10.1.0/27 via 200.200.204.1 dev ens8f0
+ip route add 10.10.2.0/28 via 200.200.204.1 dev ens8f0
+ip route add 10.10.3.0/26 via 200.200.204.1 dev ens8f0
+ip route add 10.10.4.0/29 via 200.200.204.1 dev ens8f0
+
