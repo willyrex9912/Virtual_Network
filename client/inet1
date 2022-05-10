@@ -1,5 +1,7 @@
 #!/bin/bash
 
-ip addr add $1 dev $2
-ip link set $2 up
+INTERFACE1="ens8"
+
+ip addr add $1 dev INTERFACE1
+ip link set INTERFACE1 up
 
