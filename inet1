@@ -2,13 +2,13 @@
 
 BRIDGE1="bridge_AB"
 BRIDGE2="bridge_BC"
-BRIDGE3="bridge_CD"
-BRIDGE4="bridge_DE"
+BRIDGE3="bridge_CE"
+BRIDGE4="bridge_ED"
 BRIDGE5="bridge_A"
 BRIDGE6="bridge_B"
 BRIDGE7="bridge_C"
-BRIDGE8="bridge_D"
-BRIDGE9="bridge_E"
+BRIDGE8="bridge_E"
+BRIDGE9="bridge_D"
 
 sudo brctl addbr $BRIDGE1
 sudo brctl addbr $BRIDGE2
