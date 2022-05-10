@@ -2,6 +2,48 @@
 
 INTERFACE1="ens8"
 
-ip addr add $1 dev $INTERFACE1
-ip link set $INTERFACE1 up
+ip addr flush dev $INTERFACE1
 
+if [[ $1 == 10.10.1.* ]]
+then
+	echo "Setting 10.10.1.* network."
+	ip addr add $1/27 dev $INTERFACE1
+	ip route add 200.200.200.0/30 via 10.10.1.1 dev ens8
+	ip route add 200.200.201.0/30 via 10.10.1.1 dev ens8
+	ip route add 200.200.202.0/30 via 10.10.1.1 dev ens8
+	ip route add 200.200.204.0/30 via 10.10.1.1 dev ens8
+elif [[ $1 == 10.10.2.* ]]
+then
+	echo "Setting 10.10.2.* network."
+	ip addr add $1/28 dev $INTERFACE1
+	ip route add 200.200.200.0/30 via 10.10.2.1 dev ens8
+	ip route add 200.200.201.0/30 via 10.10.2.1 dev ens8
+	ip route add 200.200.202.0/30 via 10.10.2.1 dev ens8
+	ip route add 200.200.204.0/30 via 10.10.2.1 dev ens8
+elif [[ $1 == 10.10.3.* ]]
+then
+	echo "Setting 10.10.3.* network"
+	ip addr add $1/26 dev $INTERFACE1
+	ip route add 200.200.200.0/30 via 10.10.3.1 dev ens8
+	ip route add 200.200.201.0/30 via 10.10.3.1 dev ens8
+	ip route add 200.200.202.0/30 via 10.10.3.1 dev ens8
+	ip route add 200.200.204.0/30 via 10.10.3.1 dev ens8
+elif [[ $1 == 10.10.4.* ]]
+then
+	echo "Setting 10.10.4.* network"
+	ip addr add $1/29 dev $INTERFACE1
+	ip route add 200.200.200.0/30 via 10.10.4.1 dev ens8
+	ip route add 200.200.201.0/30 via 10.10.4.1 dev ens8
+	ip route add 200.200.202.0/30 via 10.10.4.1 dev ens8
+	ip route add 200.200.204.0/30 via 10.10.4.1 dev ens8
+elif [[ $1 == 10.10.5.* ]]
+then
+	echo "Setting 10.10.5.* network."
+	ip addr add $1/26 dev $INTERFACE1
+	ip route add 200.200.200.0/30 via 10.10.5.1 dev ens8
+	ip route add 200.200.201.0/30 via 10.10.5.1 dev ens8
+	ip route add 200.200.202.0/30 via 10.10.5.1 dev ens8
+	ip route add 200.200.204.0/30 via 10.10.5.1 dev ens8
+fi
+
+ip link set $INTERFACE1 up
