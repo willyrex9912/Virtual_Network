@@ -13,6 +13,11 @@ then
 	ip route add 200.200.201.0/30 via 10.10.1.1 dev ens8
 	ip route add 200.200.202.0/30 via 10.10.1.1 dev ens8
 	ip route add 200.200.204.0/30 via 10.10.1.1 dev ens8
+	ip route add 10.10.2.0/28 via 10.10.1.1 dev ens8
+	ip route add 10.10.3.0/26 via 10.10.1.1 dev ens8
+	ip route add 10.10.4.0/29 via 10.10.1.1 dev ens8
+	ip route add 10.10.5.0/26 via 10.10.1.1 dev ens8
+
 elif [[ $1 == 10.10.2.* ]]
 then
 	echo "Setting 10.10.2.* network."
@@ -22,6 +27,11 @@ then
 	ip route add 200.200.201.0/30 via 10.10.2.1 dev ens8
 	ip route add 200.200.202.0/30 via 10.10.2.1 dev ens8
 	ip route add 200.200.204.0/30 via 10.10.2.1 dev ens8
+	ip route add 10.10.1.0/28 via 10.10.2.1 dev ens8
+	ip route add 10.10.3.0/26 via 10.10.2.1 dev ens8
+	ip route add 10.10.4.0/29 via 10.10.2.1 dev ens8
+	ip route add 10.10.5.0/26 via 10.10.2.1 dev ens8
+
 elif [[ $1 == 10.10.3.* ]]
 then
 	echo "Setting 10.10.3.* network"
@@ -31,6 +41,11 @@ then
 	ip route add 200.200.201.0/30 via 10.10.3.1 dev ens8
 	ip route add 200.200.202.0/30 via 10.10.3.1 dev ens8
 	ip route add 200.200.204.0/30 via 10.10.3.1 dev ens8
+	ip route add 10.10.1.0/28 via 10.10.3.1 dev ens8
+	ip route add 10.10.2.0/28 via 10.10.3.1 dev ens8
+	ip route add 10.10.4.0/29 via 10.10.3.1 dev ens8
+	ip route add 10.10.5.0/26 via 10.10.3.1 dev ens8
+
 elif [[ $1 == 10.10.4.* ]]
 then
 	echo "Setting 10.10.4.* network"
@@ -40,6 +55,11 @@ then
 	ip route add 200.200.201.0/30 via 10.10.4.1 dev ens8
 	ip route add 200.200.202.0/30 via 10.10.4.1 dev ens8
 	ip route add 200.200.204.0/30 via 10.10.4.1 dev ens8
+	ip route add 10.10.1.0/28 via 10.10.4.1 dev ens8
+	ip route add 10.10.2.0/28 via 10.10.4.1 dev ens8
+	ip route add 10.10.3.0/26 via 10.10.4.1 dev ens8
+	ip route add 10.10.5.0/26 via 10.10.4.1 dev ens8
+
 elif [[ $1 == 10.10.5.* ]]
 then
 	echo "Setting 10.10.5.* network."
@@ -49,4 +69,9 @@ then
 	ip route add 200.200.201.0/30 via 10.10.5.1 dev ens8
 	ip route add 200.200.202.0/30 via 10.10.5.1 dev ens8
 	ip route add 200.200.204.0/30 via 10.10.5.1 dev ens8
+	ip route add 10.10.1.0/28 via 10.10.5.1 dev ens8
+	ip route add 10.10.2.0/28 via 10.10.5.1 dev ens8
+	ip route add 10.10.3.0/26 via 10.10.5.1 dev ens8
+	ip route add 10.10.4.0/26 via 10.10.5.1 dev ens8
+
 fi
