@@ -15,3 +15,8 @@ sysctl -w net.ipv4.ip_forward=1
 ip route add 200.200.200.0/30 via 200.200.201.1 dev ens8f0
 ip route add 200.200.204.0/30 via 200.200.202.2 dev ens9
 
+ip route add 10.10.1.0/27 via 200.200.201.1 dev ens8f0
+ip route add 10.10.2.0/28 via 200.200.201.1 dev ens8f0
+ip route add 10.10.4.0/29 via 200.200.202.2 dev ens9
+ip route add 10.10.5.0/26 via 200.200.202.2 dev ens9
+
