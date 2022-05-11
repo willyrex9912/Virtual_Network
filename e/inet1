@@ -20,13 +20,26 @@ ip route add 10.10.2.0/28 via 200.200.202.1 dev ens8f0
 ip route add 10.10.3.0/26 via 200.200.202.1 dev ens8f0
 ip route add 10.10.5.0/26 via 200.200.204.2 dev ens9
 
-#FILTERING TRAFFIC
-iptables -A FORWARD -i ens10 -s 10.10.4.4 -d 10.10.1.2 -j ACCEPT
+#FILTERING NEW TRAFFIC
+iptables -A FORWARD -i ens10 -s 10.10.4.4 -d 10.10.1.2 -m state --state NEW,ESTABLISHED -j ACCEPT
 
-iptables -A FORWARD -i ens10 -s 10.10.4.2 -d 10.10.2.4 -j ACCEPT
-iptables -A FORWARD -i ens10 -s 10.10.4.4 -d 10.10.2.4 -j ACCEPT
+iptables -A FORWARD -i ens10 -s 10.10.4.2 -d 10.10.2.4 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i ens10 -s 10.10.4.4 -d 10.10.2.4 -m state --state NEW,ESTABLISHED -j ACCEPT
 
-iptables -A FORWARD -i ens10 -s 10.10.4.3 -d 10.10.5.5 -j ACCEPT
+iptables -A FORWARD -i ens10 -s 10.10.4.3 -d 10.10.5.5 -m state --state NEW,ESTABLISHED -j ACCEPT
 
+#FILTERING RELATED TRAFFIC
+iptables -A FORWARD -i ens10 -d 10.10.1.2 -s 10.10.4.2 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i ens10 -d 10.10.1.2 -s 10.10.4.3 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i ens10 -d 10.10.1.3 -s 10.10.4.2 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i ens10 -d 10.10.1.3 -s 10.10.4.3 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i ens10 -d 10.10.1.4 -s 10.10.4.2 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i ens10 -d 10.10.1.4 -s 10.10.4.3 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+iptables -A FORWARD -i ens10 -d 10.10.2.3 -s 10.10.4.2 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i ens10 -d 10.10.2.3 -s 10.10.4.3 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+iptables -A FORWARD -i ens10 -d 10.10.5.2 -s 10.10.4.5 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#DROP TRAFFIC
 iptables -A FORWARD -i ens10 -j DROP
-

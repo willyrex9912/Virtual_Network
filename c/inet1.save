@@ -28,8 +28,6 @@ iptables -A FORWARD -i ens10 -s 10.10.3.5 -d 10.10.5.2 -m state --state NEW,ESTA
 iptables -A FORWARD -i ens10 -s 10.10.3.6 -d 10.10.5.2 -m state --state NEW,ESTABLISHED -j ACCEPT
 
 #FILTERING RELATED TRAFFIC
-iptables -A FORWARD -i ens10 -d 10.10.5.3 -s 10.10.3.2 -m state --state ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD -i ens10 -d 10.10.5.4 -s 10.10.3.2 -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-#DROP TRAFFIC
+
 iptables -A FORWARD -i ens10 -j DROP
