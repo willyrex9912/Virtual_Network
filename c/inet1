@@ -20,3 +20,11 @@ ip route add 10.10.2.0/28 via 200.200.201.1 dev ens8f0
 ip route add 10.10.4.0/29 via 200.200.202.2 dev ens9
 ip route add 10.10.5.0/26 via 200.200.202.2 dev ens9
 
+#FILTERING TRAFFIC
+iptables -A FORWARD -i ens10 -s 10.10.3.2 -d 10.10.5.2 -j ACCEPT
+iptables -A FORWARD -i ens10 -s 10.10.3.3 -d 10.10.5.2 -j ACCEPT
+iptables -A FORWARD -i ens10 -s 10.10.3.4 -d 10.10.5.2 -j ACCEPT
+iptables -A FORWARD -i ens10 -s 10.10.3.5 -d 10.10.5.2 -j ACCEPT
+iptables -A FORWARD -i ens10 -s 10.10.3.6 -d 10.10.5.2 -j ACCEPT
+
+iptables -A FORWARD -i ens10 -j DROP
